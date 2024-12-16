@@ -1,9 +1,33 @@
 # html
 
 ```html
-<h1>학생출력</h1>
+<h1>도서 목록</h1>
 <input type="file" id="fileIn" />
 <div id="display"></div>
+```
+
+# Css
+
+```css
+.bookD {
+  color: blue;
+}
+
+.outBox {
+  margin-top: 20px;
+}
+
+.inBox {
+  display: flex;
+}
+
+.inBox > div:nth-child(2) {
+  margin-left: 5px;
+}
+
+.outBox > div:not(:first-child) {
+  padding: 0 10px;
+}
 ```
 
 # js
@@ -12,40 +36,45 @@
 document.getElementById("fileIn").addEventListener("change", function (e) {
   let files = e.target.files[0];
   if (files) {
-    let re = new FileReader();
-    re.onload = function (e) {
+    let reader = new FileReader();
+    reader.onload = function (e) {
       try {
-        // let jsonData = e.target.result;
         let jsData = JSON.parse(e.target.result);
         let display = document.getElementById("display");
 
         jsData.forEach((item) => {
           let outBox = document.createElement("div");
           outBox.classList.add("outBox");
+          let inBox = document.createElement("div");
+          inBox.classList.add("inBox");
+
+          let bookD = document.createElement("div");
+          bookD.classList.add("bookD");
+          bookD.textContent = item.교재;
 
           let nameD = document.createElement("div");
-          nameD.classList.add("outBox");
-          nameD.textContent = item.이름;
+          nameD.classList.add("nameD");
+          nameD.textContent = `저자 : ${item.저자},`;
 
-          let junD = document.createElement("div");
-          junD.classList.add("junD");
-          junD.textContent = item.전공;
+          let yearD = document.createElement("div");
+          yearD.classList.add("yearD");
+          yearD.textContent = `출판년도 : ${item.출판년도}`;
 
-          let hakD = document.createElement("div");
-          hakD.classList.add("hakD");
-          hakD.textContent = item.학년;
-
-          outBox.appendChild(nameD);
-          outBox.appendChild(junD);
-          outBox.appendChild(hakD);
+          outBox.appendChild(bookD);
+          outBox.appendChild(inBox);
+          inBox.appendChild(nameD);
+          inBox.appendChild(yearD);
 
           display.appendChild(outBox);
         });
       } catch (error) {
-        document.write("읽기 실패", error.message);
+        document.write("에러발생", error.message);
       }
     };
-    re.readAsText(files);
+
+    reader.readAsText(files);
   }
 });
 ```
+
+# json
