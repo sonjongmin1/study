@@ -92,3 +92,132 @@ document.write(!(a && b) && c); // true, a와 b가 true c는 true이므로 true
 // || or
 document.write(a || b); // true, 둘 중 하나만 true 이어야 true
 ```
+
+<br>
+<br>
+
+### 제어문이란 프로그램에서 결과값을 도출하기 위해 순서를 제어하거나, 반복
+
+### 제어문의 종류 조건문(if,switch), 반복문, 중단(break), 건너뛰기(continue)
+
+### 반복문 (for, while, do-while)
+
+<br>
+<br>
+
+# `조건문`
+
+#### if, switch, 삼항연산자
+
+<br>
+<br>
+
+# `반복문`
+
+### for, while, do-while
+
+while 문<br>
+while (조건식){<br>
+실행문;<br>
+증가감식;<br>
+}
+
+# `while, do-while`
+
+```js
+let num1 = 10;
+let num2 = 10;
+let sum = 0;
+let sum1 = 0;
+
+while (num1 < 20) {
+  num1++;
+  sum += num1;
+}
+
+//무한루프 break로 탈출 while은 조건이 false일때 탈출
+while(){
+    if(num1 == 10){
+        break;
+    }
+}
+
+//무한루프 break로 탈출
+while(true){
+    if(num1 == 10){
+        break;
+    }
+}
+
+// 한번은 무조건 실행
+do {
+  num2++;
+} while (num1 < 9);
+
+document.write(num2);
+```
+
+<br>
+<br>
+
+# `for문`
+
+```js
+let i;
+for (let i = 0; i < 5; i++) {
+  let str = "";
+  for (let j = 1; j < i; j++) {
+    str += "*";
+  }
+}
+```
+
+# 별찍기
+
+```js
+document.write(".");
+for (let i = 0; i < 10; i++) {
+  document.write(i);
+}
+
+document.write("<br>");
+for (let i = 0; i < 10; i++) {
+  document.write(i);
+  for (let j = 0; j < 10; j++) {
+    if (i + j == 9) {
+      document.write("*");
+    } else {
+      document.write("-");
+    }
+  }
+  document.write("<br>");
+}
+```
+
+# `배열`
+
+```js
+let arr = ["a", "b", "c", "d"];
+// 뒤 push
+arr.push("d");
+// 앞 unshift
+arr.unshift("a");
+// pop 뒤에서 빼기
+arr.pop();
+// shift 앞에서 빼기
+arr.shift();
+
+// 자르기
+let arr2 = arr.slice(0, 1);
+// splice(인덱스번호, 제거갯수, 추가할데이터)
+// sort() 오름차순 정렬, reverse() 내림차순, 정렬 유니코드가 가지고 있는 숫자의 순서대로 오름차순 정렬 특수문자 > 숫자 > 대문자 > 소문자
+// includes("") 배열에 포함되어 있는지 확인
+```
+
+```js
+let arr = ["apple", "banana", "orange"];
+// 배열을 복사 할 때는 ... 스프레드 연산자(전개 연산자:안에 있는 배열을 펼쳐 놓는다.)를 사용한다.
+let arr2 = [...arr];
+arr2.push("grape");
+document.write(arr2);
+```
