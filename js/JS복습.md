@@ -220,4 +220,128 @@ let arr = ["apple", "banana", "orange"];
 let arr2 = [...arr];
 arr2.push("grape");
 document.write(arr2);
+
+let sum = 0;
+function add2(...num) {
+  for (let item of num) {
+    sum += item;
+  }
+
+  return sum;
+}
+
+document.write(add2(10, 20, 30, 40, 50, 60));
+```
+
+# `객체`
+
+### 객체는 키와 키값이 존재하고, 프로퍼티(키 : 키값)가 존재한다. 모두 묶어 객체라고한다. <br>let obj = { name: "hong" };
+
+```js
+let arr = ["orange", "apple", "banana"];
+let a = arr.find((item) => {
+  return item == "apple";
+});
+
+document.write(a);
+// 출력 apple
+
+//  객체
+let obj = [
+  { name: "hong", age: 20, city: "seoul" },
+  { name: "kim", age: 22, city: "aaa" },
+  { name: "park", age: 22, city: "bbb" },
+];
+
+let b = obj.find((item) => {
+  return item.name == "hong";
+});
+
+document.write(b.name, b.age, b.city);
+// 출력 hong20seoul
+
+let obj = [6, 3, 1, 4, 5];
+
+//   let obj = [
+//     { name: "hong", age: 20, city: "seoul" },
+//     { name: "kim", age: 22, city: "aaa" },
+//     { name: "park", age: 22, city: "bbb" },
+//   ];
+
+let c = obj.filter((item) => {
+  return item >= 3;
+});
+
+document.write(c);
+let obj = [6, 3, 1, 4, 5];
+
+//   let obj = [
+//     { name: "hong", age: 20, city: "seoul" },
+//     { name: "kim", age: 22, city: "aaa" },
+//     { name: "park", age: 22, city: "bbb" },
+//   ];
+
+let c = obj.filter((item) => {
+  return item >= 3;
+});
+
+document.write(c);
+// 출력 6,3,4,5
+
+let obj = [
+  { name: "hong", age: 20, city: "seoul" },
+  { name: "kim", age: 22, city: "aaa" },
+  { name: "park", age: 22, city: "bbb" },
+];
+
+let b = obj.filter((item) => {
+  return item.age >= 22;
+});
+
+console.log(b);
+
+b.forEach((item) => {
+  document.write(item.name);
+});
+
+// kimpark
+
+let obj = {
+  name: "홍길동",
+  age: 20,
+  item: [{ aa: "html/css" }, { aa: "javaScript" }, { aa: "jQuery" }],
+};
+
+document.write(obj.name + "<br>");
+document.write(obj.age + "<br>");
+obj.item.forEach((item) => {
+  document.write(item.aa + "<br>");
+});
+
+for (let kk of obj.item) {
+  document.write(kk.aa + "<br>");
+}
+
+/* 출력
+홍길동
+20
+html/css
+javaScript
+jQuery
+html/css
+javaScript
+jQuery
+*/
+```
+
+```js
+let obj = { name: "홍길동", age: 20, city: "서울" };
+// 객체를 배열로 변환
+let a = Object.keys(obj);
+console.log(a);
+document.write(a + "<br>");
+let b = Object.values(obj);
+document.write(b + "<br>");
+let c = Object.keys(obj);
+document.write(c + "<br>");
 ```
