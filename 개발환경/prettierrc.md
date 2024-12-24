@@ -1,0 +1,11 @@
+### .prettierrc
+
+```js
+{
+  "semi": true,
+  "singleQuote": false,
+  "endOfLine": "lf",
+  "tabWidth": 2,
+  "useTabs": false
+}
+```
