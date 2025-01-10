@@ -34,4 +34,41 @@
 
 ### 설치방법
 
-1. 설치
+### 1. 설치 Prettier
+
+![ima1](../img/prettierrc/img1.png)
+
+### 2. root에 .prettierrc 파일 추가
+
+![ima2](../img/prettierrc/img2.png)
+
+### 3. window: ctrl + , (setting 열기)
+
+- foramt on save 검색, 저장을 할때 형식이 맞춰주기 위함
+  ![ima3](../img/prettierrc/img3.png)
+- prettier config 검색
+  ![ima4](../img/prettierrc/img4.png)
+
+### 4. 추가
+
+![ima5](../img/prettierrc/img5.png)
+
+```js
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+```
+
+- 설정 들어가면 Open Settings 아이콘 클릭, 복사한 코드 추가
+  ![ima6](../img/prettierrc/img6.png)
+
+- root .prettierrc 파일에 코드 추가
+  ![ima7](../img/prettierrc/img7.png)
+
+```js
+{
+  "semi": false,
+  "singleQuote": true,
+  "endOfLine": "lf",
+  "tabWidth": 2,
+  "useTabs": false
+}
+```
