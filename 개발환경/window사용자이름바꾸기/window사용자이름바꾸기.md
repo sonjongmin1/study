@@ -1,6 +1,6 @@
 # `1. window 사용자 이름 바꾸기`
 
-![ima1](../../img/window/img1.PNG/)
+![img1](../../img/window/img1.PNG)
 
 - netplwiz 검색
 - 속성, 사용자이름, 전체이름 바꾸고자하는 영문이름으로 변경
@@ -24,7 +24,7 @@
 
 ### 3) 레지스트리 정보 변경하기
 
-![ima2](../../img/window/img2.PNG/)
+![img2](../../img/window/img2.PNG)
 
 - 윈도우 찾기에서 레지스트리 편집기 검색
 

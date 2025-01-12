@@ -2,6 +2,8 @@
 
 ### 1. Single Page Application 만들때 사용, 앱처럼 부드럽게 동작하는 HTML Page들은 만들고 싶을때 사용한다.
 
+- Single Page Application : html 파일 하나만 기본적으로 사용
+
 ### 2. JS로 Single Page Application 가능하나, 코드가 길고 복잡해진다. 따라서 React라는 라이브러리를 설치해서 쓴다.
 
 ### 3. Vue, Svelte, Preact, Solid JS, React와 비슷한 라이브러리들 많음, React는 가장 오래됐고 유저가 많음 대중적이다.
