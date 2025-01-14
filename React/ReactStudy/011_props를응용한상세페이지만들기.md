@@ -1,16 +1,8 @@
-# `자식이 부모의 state 가져다쓰고 싶을 때는 props`
+# props를 응용한 상세페이지 만들기
 
-<img src="../../img/reactStudy/img010_1.PNG" alt="img1" width="200" height="200">
-<br>
+### 중요
 
-- 부모컴포넌트에서 자식컴포넌트로 state를 전송해 줄 수 있다.
-- 전송할때는 props라는 문법을 사용한다.
-
-### 부모 → 자식 state 전송하는 법, props 문법 사용
-
-1. <자식컴포넌트 작명={state이름}>
-2. props 파라미터 등록 후 props.작명 사용
-3. 단, 자식 → 부모로는 전송이 불가능하다.
+### state 만드는 곳은 state 사용하는 컴포넌트들 중 최상위컴포넌트(App.jsx)
 
 ```js
 /* eslint-disable */
@@ -28,6 +20,7 @@ function App() {
   ]);
   let [like, likeChange] = useState([0, 0, 0]);
   let [modal, setModal] = useState(false);
+  let [count, setCount] = useState(2);
   return (
     <>
       <h4 className={"title"}>{post}</h4>
@@ -35,7 +28,13 @@ function App() {
         return (
           <div className="list">
             <h4>
-              <span>{title[i]}</span>
+              <span
+                onClick={() => {
+                  setCount(i);
+                }}
+              >
+                {title[i]}
+              </span>
               <span
                 onClick={() => {
                   let copy = [...like];
@@ -57,8 +56,14 @@ function App() {
       >
         모달 버튼
       </button>
+
       {modal == true ? (
-        <Modal color="orange" test={title} titleChange={titleChange} />
+        <Modal
+          count={count}
+          color="orange"
+          title={title}
+          titleChange={titleChange}
+        />
       ) : null}
     </>
   );
@@ -66,7 +71,7 @@ function App() {
   function Modal(props) {
     return (
       <div className="modal" style={{ backgroundColor: props.color }}>
-        <h4>{props.test[0]}</h4>
+        <h4>{props.title[props.count]}</h4>
         <p>날짜</p>
         <p>상세내용</p>
         <button
