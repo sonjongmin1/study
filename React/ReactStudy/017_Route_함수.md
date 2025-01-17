@@ -84,3 +84,35 @@ let navigate = useNavigate();
 
 1. UI만들면 앞으로, 뒤로가기 버튼 이용가능
 2. 페이지 이동이 쉬움 (UI 스위치 조작 쉬움)
+
+### URL파라미터
+
+```js
+<Route path="/detail/:id" element={<Detail shoes={shoes} />} />
+```
+
+- 페이지 여러개 만들고 싶으면 :URL파라미터 써도 된다.
+
+#### Q. 페이지는 여래가인데 보이는 내용은 똑같다.
+
+- 각각 다른 컴포넌트(페이지)를 여러개 만들기
+- 하나의 컴포넌트로 각각 다른 내용 보여주기
+
+### useParams()
+
+- 유저가 URL파라미터에 입력한거 가져오려면 useParams()
+
+```js
+import { useParams } from "react-router-dom";
+
+let { id } = useParams();
+```
+
+- URL파라미터 만들때 여러개 사용 가능
+
+```js
+<Route
+  path="/detail/:id/abcdef/:abcd"
+  element={<div>{<Detail shoes={shoes} />}</div>}
+/>
+```
