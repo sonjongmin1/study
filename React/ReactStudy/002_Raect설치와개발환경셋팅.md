@@ -28,7 +28,7 @@ npm install // 리액트에 필요한 라이브러리들
 */
 ```
 
-### 미리보기 실행
+### 미리보기 실행 (build 전)
 
 ```js
 npm run dev
@@ -39,7 +39,12 @@ node.js 최신으로 다운로드
 */
 local host // cmd + click 페이지 열기
 //미리보기 중지 ctrl + c
+```
 
+### 미리보기 실행 (build 이후)
+
+```js
+npm run preview
 ```
 
 ### js (JavaScript)
