@@ -28,6 +28,18 @@ function Detail(props) {
 - 서버에서 데이터가져오는 작업
 - 타이머 장착하기
 
+```js
+// 1. 재렌더링마다 코드실행하고 싶으면 사용
+useEffect(() => {});
+// 2. mount시 1회 코드실행하고 싶으면
+useEffect(() => {}, []);
+// 3. unmount시 1회 코드실행하고 싶으면
+useEffect(() => {
+  return () => {};
+}, []);
+// 4. useEffect 실행 전에 뭔가 실행하려면 언제나 return()=>{}
+```
+
 Q. Effect인 이유?
 A. Side Effect : 함수의 핵심기능과 상관없는 부가기능에서 나온 함수명이다.
 useEffect에 들어갈 것들을 함수의 핵심기능 html 랜더링기능이 아닌 그외의 것들을 보통 집넣기 때문에 Side Effect같다해서 useEffect라고 이름을 지음.
