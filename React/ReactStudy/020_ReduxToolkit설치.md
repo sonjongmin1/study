@@ -105,3 +105,27 @@ let a = useSelector((state) => {
 - 간단한 프로젝트는 props 전송하는게 코드가 더 짧다.
 
 ### Redux store 남용X, 컴포넌트간 공유가 필요없으면 useState()쓰기
+
+## `Redux의 state 변경하는 법`
+
+### store.js
+
+```js
+let user = createSlice({
+    name: "user",
+    initialState = :"kim"
+    reducers:{
+        // 여기서 state는 기존 state를 뜻한다.
+        changeName(state){
+            return "john kim" + state
+        }
+    }
+})
+// state 변경함수들 남음, 오른쪽 자료를 변수로 빼는 문법일 뿐이다.
+export let {changeName, 함수2, ...} = user.actions
+```
+
+- 1. state 수정해주는 함수 만들기
+- 2. 만든 함수 export 해야함. 원할 때 함수 실행해달라고 store.js에 요청
+- 3. 만든 함수 import 해서 사용
+- 4. dispatch(state변경함수())
