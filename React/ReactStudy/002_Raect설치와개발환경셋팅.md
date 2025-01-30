@@ -28,6 +28,17 @@ npm install // 리액트에 필요한 라이브러리들
 */
 ```
 
+- 주의사항 : vite는 기본 설정에 맞게 배포하려면 gh-pages 명령어에서 -d dist 옵션을 사용해야 합니다.
+
+### package.json
+
+```js
+"scripts": {
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d dist"
+}
+```
+
 ### 미리보기 실행 (build 전)
 
 ```js
@@ -93,3 +104,17 @@ function App() {
 }
 export default App;
 ```
+
+---
+
+# Vite 공식문서
+
+### 정적 웹페이지로 배포하기
+
+### 공식문서
+
+https://ko.vite.dev/guide/static-deploy.html#github-pages
+
+### 참고url
+
+https://www.youtube.com/watch?v=yUWuNKHvHFM
