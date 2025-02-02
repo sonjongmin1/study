@@ -63,6 +63,13 @@ import { configureStore, createSlice } from "@reduxjs/toolkit";
 let user = createSlice({
   name: "user",
   initialState: "kim",
+
+  // 함수 사용
+  reducers: {
+    changeName() {
+      return "park";
+    },
+  },
 });
 
 let stock = createSlice({
@@ -70,6 +77,10 @@ let stock = createSlice({
   initialState: [10, 11, 12],
 });
 
+// 함수 내보내기
+export let { changeName } = user.actions;
+
+// 등록
 export default configureStore({
   reducer: {
     user: user.reducer,
@@ -81,12 +92,19 @@ export default configureStore({
 #### Redux store의 state꺼내는 법
 
 ```js
+import { useDispatch, useSelector } from "react-redux";
+import { changeName } from "../store";
+
+// state 가져오기
 let a = useSelector((state) => {
   return state;
 });
 
-console.log(a);
-// state전체 보기
+// 함수 가져오기
+let dispatch = useDispatch();
+
+// 함수 사용
+dispatch(changeName());
 ```
 
 ### 참고 useSelector 편하게 쓰려면
