@@ -1,4 +1,4 @@
-# 날씨API
+# `날씨 API`
 
 https://openweathermap.org/guide
 
@@ -8,7 +8,7 @@ https://openweathermap.org/guide
 async function abcd() {
   try {
     let res = await fetch(
-      `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=36c7e8662756cdc79406a17b81f4940b`
+      `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={APIKEY}`
     );
     //   오류가 발생하면
     if (!res.ok) {
@@ -30,7 +30,7 @@ async function abcd() {
 // 비동기식 사용하는 명령어, 자료가 완성이 될때까지 기다렸다가 자료를 보내주는 것
 let abc = async () => {
   let res = await fetch(
-    `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid=36c7e8662756cdc79406a17b81f4940b`
+    `https://api.openweathermap.org/data/2.5/weather?lat={lat}&lon={lon}&appid={APIKEY}`
   );
 
   // json은 자바스크립트에서 사용할 수 없으므로 객체로 바꾼다.
