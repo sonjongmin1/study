@@ -67,3 +67,37 @@ let weather = async () => {
 
 weather();
 ```
+
+# `날씨 API 아이콘 가져오기`
+
+```js
+let temp = document.querySelector("#temp");
+let wind = document.querySelector("#wind");
+let position = document.querySelector("#position");
+let des = document.querySelector("#des");
+let weatherImg = document.querySelector("#weatherImg");
+let iconUrl = "https://openweathermap.org/img/wn/10d@2x.png";
+
+// 나의 API KEY
+let API_key = "36c7e8662756cdc79406a17b81f4940b";
+let cityName = "ansan";
+
+let weather = async () => {
+  let res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_key}&units=metric&lang=kr`
+  );
+  let data = await res.json();
+
+  console.log(data);
+  temp.textContent = data.main.temp;
+  wind.textContent = data.wind.speed;
+  position.textContent = data.name;
+  des.textContent = data.weather[0].description;
+
+  if (data.weather[0].icon == "04d") {
+    weatherImg.style.backgroundImage = `url(${iconUrl})`;
+  }
+};
+
+weather();
+```
