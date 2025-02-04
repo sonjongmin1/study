@@ -39,3 +39,31 @@ let abc = async () => {
   return data;
 };
 ```
+
+### 활용 3
+
+```js
+let temp = document.querySelector("#temp");
+let wind = document.querySelector("#wind");
+let position = document.querySelector("#position");
+let intro = document.querySelector("#intro");
+
+// 나의 API KEY
+let API_key = "";
+let cityName = "ansan";
+
+let weather = async () => {
+  let res = await fetch(
+    `https://api.openweathermap.org/data/2.5/weather?q=${cityName}&appid=${API_key}&units=metric&lang=kr`
+  );
+  let data = await res.json();
+
+  console.log(data);
+  temp.textContent = data.main.temp;
+  wind.textContent = data.wind.speed;
+  position.textContent = data.name;
+  intro.textContent = data.weather[0].description;
+};
+
+weather();
+```
