@@ -79,7 +79,7 @@ let weatherImg = document.querySelector("#weatherImg");
 let iconUrl = "https://openweathermap.org/img/wn/10d@2x.png";
 
 // 나의 API KEY
-let API_key = "36c7e8662756cdc79406a17b81f4940b";
+let API_key = "";
 let cityName = "ansan";
 
 let weather = async () => {
