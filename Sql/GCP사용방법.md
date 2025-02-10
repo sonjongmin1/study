@@ -55,3 +55,6 @@
 4. Database: Gcp에 설정한 인스턴스 이름
 5. Username, Password 입력
 6. Test Connection... 클릭시 Connected 문구 나온거 확인했으면 완료.
+7. 왼쪽 상단에 보면 root라는게 만들어짐
+8. 이제부터 연습 가능하다.
+9. SQL 편집기 클릭
