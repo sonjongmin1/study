@@ -2,7 +2,7 @@
 
 1. 구글 gcp 검색, Cloud 콘솔 클릭
 2. 내 콘솔로 이동
-3. 왼쪽 상단 메뉴바 클릭, SQL 클릭
+3. 왼쪽 상단 메뉴바 클릭, My SQL 클릭
 4. 무료 크레딧으로 인스턴스 만들기
 5. API 활성
 6. `Enterprise 선택 (Pluse는 선택하지 말기)`
@@ -59,3 +59,30 @@
 7. 왼쪽 상단에 보면 root라는게 만들어짐
 8. 이제부터 연습 가능하다.
 9. SQL 편집기 클릭
+
+# sql 용어
+
+### 테이블 설계
+
+```js
+create table ta(  // ta라는 테이블을 만들어라
+    name varchar(50),
+    city varchar(50)
+);
+// cmd + enter 실행
+```
+
+### 확인 명령어
+
+```js
+select * from ta
+```
+
+- 테이블 가져오기
+
+```js
+insert into ta (name, city)values('이순신','서울');
+insert into ta (name, city)values('홍길동','부산');
+```
+
+- 내용 집어넣기
