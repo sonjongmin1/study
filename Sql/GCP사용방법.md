@@ -53,5 +53,5 @@
 2. MySQL 선택, 다음 클릭
 3. Server Host: 외부 아이피 공개아이피 복사 붙여넣기
 4. Database: Gcp에 설정한 인스턴스 이름
-5. Test Connection... 클릭시 Connected 문구 나온거 확인했으면 완료.
-6.
+5. Username, Password 입력
+6. Test Connection... 클릭시 Connected 문구 나온거 확인했으면 완료.
