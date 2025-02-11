@@ -58,7 +58,38 @@ create table testb(
 	dateat timestamp default CURRENT_TIMESTAMP
 );
 
-select * from testb
+select * from testb;
 ```
 
 - 필드명에 at 붙으면 자동증가라고 보면 된다.
+
+## INSERT
+
+```sql
+insert into testa(Name,Salary, inDate) values
+("lee",5000.00, "2023-1-11");
+```
+
+- 자료 insert
+
+```sql
+insert into testa(Name,Salary, inDate) values
+("son1",6000.00, default),("son2",6000.00, default);
+```
+
+- 자료 한번에 insert
+
+### 활용예제3
+
+```sql
+insert into testb(pname, price, dateat) values
+("tablet", 500.00, default);
+
+insert into testb(pname, price, dateat) values
+("monitor", 3000.00, default);
+
+insert into testb(pname, price) values
+("keyboard", 2000.00),("mouse", 1000.00);
+
+select * from testb;
+```
