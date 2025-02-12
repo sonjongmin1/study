@@ -204,3 +204,13 @@ limit 5
 ```
 
 - 순서가 틀리면 에러 발생하므로 순서 주의하기
+
+### group by
+
+#### 활용예제
+
+```sql
+select product_name, sum(sales_amount) as totalsa from sales
+group by product_name
+having totalsa >= 820;
+```
