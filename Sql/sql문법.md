@@ -214,3 +214,63 @@ select product_name, sum(sales_amount) as totalsa from sales
 group by product_name
 having totalsa >= 820;
 ```
+
+### 활용예제2
+
+```sql
+CREATE TABLE 고객A (
+    고객ID INT AUTO_INCREMENT PRIMARY KEY,
+    고객이름 VARCHAR(50) NOT NULL,
+    연락처 VARCHAR(20),
+    이메일 VARCHAR(50) NOT NULL,
+    가입일 TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+INSERT INTO 고객A (고객이름, 연락처, 이메일) VALUES
+('홍길동', '010-1111-2222', 'hong@example.com'),
+('이순신', '010-3333-4444', 'lee@example.com'),
+('장보고', '010-5555-6666', 'jang@example.com'),
+('김유신', '010-7777-8888', 'kim@example.com'),
+('유재석', '010-9999-0000', 'you@example.com');
+
+CREATE TABLE 제품B (
+    제품번호 INT AUTO_INCREMENT PRIMARY KEY,
+    제품명 VARCHAR(50) NOT NULL,
+    단가 DECIMAL(10,2) NOT NULL,
+    출시일 DATE NOT NULL
+);
+INSERT INTO 제품B (제품명, 단가, 출시일) VALUES
+('노트북', 1500000.00, '2023-01-15'),
+('스마트폰', 800000.00, '2023-02-20'),
+('태블릿', 600000.00, '2023-03-10'),
+('헤드폰', 120000.00, '2023-04-05'),
+('스마트워치', 250000.00, '2023-05-01');
+CREATE TABLE 주문C (
+    주문번호 INT AUTO_INCREMENT PRIMARY KEY,
+    고객ID INT NOT NULL,
+    제품번호 INT NOT NULL,
+    주문일 DATE NOT NULL,
+    수량 INT NOT NULL,
+    총금액 DECIMAL(10,2) NOT NULL,
+    FOREIGN KEY (고객ID) REFERENCES 고객A(고객ID),
+    FOREIGN KEY (제품번호) REFERENCES 제품B(제품번호)
+);
+
+INSERT INTO 주문C (고객ID, 제품번호, 주문일, 수량, 총금액) VALUES
+(1, 1, '2023-06-01', 1, 1500000.00),
+(2, 2, '2023-06-02', 2, 1600000.00),
+(3, 3, '2023-06-03', 1, 600000.00),
+(4, 4, '2023-06-04', 3, 360000.00),
+(5, 5, '2023-06-05', 2, 500000.00);
+```
+
+### 활용예제2 답
+
+```sql
+select a.고객이름, a.가입일, b.제품명, b.단가 as 평균단가, c.주문일
+from 고객A a
+inner join 제품B b on a.고객ID = b.제품번호
+inner join 주문C c on b.제품번호 = c.주문번호
+where b.출시일 > "2023-01-15"
+order by b.제품명 desc
+limit 4;
+```
