@@ -138,3 +138,69 @@ Order by desc limit 2
 ```
 
 - 주의사항 : 명령어 정해진 위치를 준수해야한다.
+
+### 활용 예제1
+
+```sql
+select productname, productprice from exam3
+where producttime > "2025-01-03"
+order by  productprice asc limit 2
+```
+
+- limit 5, 10 로도 쓸수있다.
+  - 5행까지 건너뛰고 6행부터 10행까지
+
+### 활용 예제2
+
+```sql
+select employeename,employeepos,employdate,employmoney  from exam4
+where employmoney >= 8000000
+order by  employeepos asc
+```
+
+---
+
+## `sql 함수`
+
+### 합계 sum(필드명)
+
+### 갯수 count(필드명)
+
+### 평균 avg(필드명)
+
+```sql
+select avg(급여필드명) as 급여평균필드명 from 테이블명
+
+-- 활용 예제
+select sum(productprice) as productsum from exam3
+```
+
+- as 급여평균이라는 필드명 만들기
+
+### Join
+
+- 테이블 결합
+- 모든 테이블을 조각 내서 사용하는 이유는 유저에게 데이터를 빠르게 제공하기 위함
+
+```sql
+select a.name, a.age, b.상품명, b.가격, c.부서 from tablea a
+inner join tableb b on a.id = b.상품번호;
+inner join tablec c on b.상품번호 = c.직원번호
+-- a라는 테이블에 b라는 필드를 합침
+-- on 뒤에는 조건
+```
+
+- 별명.가져올필드명 from 주축으로가져올필드 별명
+
+### sql 순서 정리
+
+```sql
+select a.컬럼, b.컬럼1 avg(b.컬럼2) as 컬럼2평균 from tablea age
+inner join tableb b on a.컬럼1 = b.컬럼1
+where 조건
+group by a.컬럼1 having 그룹조건
+order by b.컬럼1 desc
+limit 5
+```
+
+- 순서가 틀리면 에러 발생하므로 순서 주의하기
