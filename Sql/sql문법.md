@@ -1,6 +1,6 @@
 # `SQL 문법`
 
-### 테이블 생성 (행 row, 열 column)
+## Create 테이블 생성 (행 row, 열 column)
 
 ```sql
 create table 테이블이름(컬럼1 데이터타입 [제약조건],
@@ -41,7 +41,7 @@ create table testa(
 	ID int auto_increment primary key,
 	Name varchar(50) not null,
 	Salary decimal(10,2) default 0.00,
-	inDate date dafault "25-02-11"
+	inDate date default "25-02-11"
 );
 
 select * from testa
@@ -93,3 +93,48 @@ insert into testb(pname, price) values
 
 select * from testb;
 ```
+
+## Delete
+
+```sql
+delete from 테이블명 where 조건;
+
+-- 예시
+delete from testb where (price >= 5000);
+```
+
+## Delete, Where 활용
+
+```sql
+delete from testa where (Name like "k%");
+```
+
+- Name 컬럼명에서 첫글자가 k인 행들 모두 삭제
+
+### Alter
+
+```sql
+alter table 테이블명 drop column 컬럼이름;
+```
+
+- 특정 컬럼을 테이블에서 삭제합니다.
+
+### Drop
+
+```sql
+drop table 테이블명;
+```
+
+- 테이블그자체를 삭제
+- delete는 테이블 구조는 유지하고 데이터를 삭제
+
+### Order by 정렬방식, limit (5줄만 나오도록 제한)
+
+#### desc 내림차순 <br>asc 오름차순
+
+```sql
+Order by desc limit 2
+-- 내림 차순으로 두번째가지만 나타나라
+```
+
+- 주의사항 : 명령어 정해진 위치를 준수해야한다.
