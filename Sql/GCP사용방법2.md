@@ -53,7 +53,7 @@ docker push us-central1-docker.pkg.dev/principal-truck-450001-d4/guestbook/guest
 - 인증되지 않은 호출 허용 클릭
 - 엔드포인트 url, 나의 API 주소
 - 변수 및 보안 비밀
-- .env require("dotenv").config() <- 주석처리, env파일은 환경변수 파일이다. 생겨난 이유는 vscode에서 반드시 필수적으로 들어가는게 서버인데 db부분을 누군가가 쉽게 볼수 있어서 환경변수 파일로 만들어서 보안상의 이유를 못보게끔 할 수 있다.
+- .env require("dotenv").config()g <- 주석처리, env파일은 환경변수 파일이다. 생겨난 이유는 vscode에서 반드시 필수적으로 들어가는게 서버인데 db부분을 누군가가 쉽게 볼수 있어서 환경변수 파일로 만들어서 보안상의 이유를 못보게끔 할 수 있다.
 - 환경 변수 변수 추가에 하나씩 올리기, DB_HOST 값 공개 ip, DB_USER, 값 root, 패스워드, 네임
 - 요청 > 100 > 인스턴스 동시 80
 - 인스턴스 최소 0, 최대 100

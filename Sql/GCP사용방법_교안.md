@@ -24,3 +24,26 @@
    - 도커 이미지 확인 : docker images (빌드가 잘 되었는지 확인), 오류 나면 도커파일에서 잘못된 곳을 찾는다.
    - 클라우드는 push할 공간을 만들어서 push가 가능했는데, local test는 run을 시켜야한다. `명령어 docker run -d -p 8080:8080 도커이미지이름(guestbook)` // -d는 백그라운드에서 해라, -p는 포트번호를 누구에게 연결시키는가
    - curl http://localhost:8080/messages
+
+## `gcp에 서버연동`
+
+사전작업 : 내컴퓨터에서 작업폴더로 가서 모든 파일을 압축한다.
+(터미널에서 압축하는거 mac은 명령어 찾아서해보기)
+
+1. Artifact Registry에서 저장소를 만든다.
+2. 저장소를 선택하고 설정안내 클릭 인증 명령어 복사
+3. 클라우드 쉘을 열어서, 복사한 내용을 붙여넣기 해서 인증받음
+4. 쉘에서 내컴퓨터 프로젝트에 있는 압축파일을 업로드 한다.
+5. 업로드 확인한다. ls -l
+6. 압축을 푼다. unzip 압축파일 이름.zip
+7. 하위폴더(server폴더)로 이동 명령어 cd
+8. docker build -t 리전이름-docker.pkg.dev/프로젝트id/저장소이름(guestbook)/이미지이름(guestbook) . <- 마지막에 . 중요
+9. docker images // 빌드 성공 확인
+10. docker push 리전이름-docker.pkg.dev/프로젝트id/저장소이름(guestbook)/이미지이름(guestbook)
+11. docker ps (push 확인 명령어), 지금 상태가 up이라고 되어있으면 된거다.
+12. api 발급을 위한 Cloud Run 메뉴 선택한다. (클라우드 쉘은 닫아도 됨)
+13. 서비스만들기, 컨테이너배포
+14. docker 이미지에서 선택 클릭
+15. 변수 및 보안설정, 변수 추가 이름 환경 변수 변수 추가에 하나씩 올리기, DB_HOST 값 공개 ip, DB_USER, 값 root, 패스워드, 네임
+16. sql 연결, 테이블을 만든 id, sql을 만들었을때 고유 아이디 (인스턴스 연결 이름), 기본적으로 설정 되어있음
+17. 배포 클릭, 클라우드런에서 api 주소가 만들어짐, root에 안만들었기 때문에 클릭해도 안나옴, url에/message <- /message를 입력해줘야 된다.
