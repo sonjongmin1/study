@@ -27,8 +27,10 @@
 
 ## `gcp에 서버연동`
 
-사전작업 : 내컴퓨터에서 작업폴더로 가서 모든 파일을 압축한다.
-(터미널에서 압축하는거 mac은 명령어 찾아서해보기)
+`사전작업 : 내컴퓨터에서 작업폴더로 가서 모든 파일을 압축한다.
+(터미널에서 압축하는거 mac은 명령어 찾아서해보기)`
+
+- 만든 저장소 설정안내 가서 허가 받기
 
 1. Artifact Registry에서 저장소를 만든다.
 2. 저장소를 선택하고 설정안내 클릭 인증 명령어 복사
@@ -36,10 +38,20 @@
 4. 쉘에서 내컴퓨터 프로젝트에 있는 압축파일을 업로드 한다.
 5. 업로드 확인한다. ls -l
 6. 압축을 푼다. unzip 압축파일 이름.zip
-7. 하위폴더(server폴더)로 이동 명령어 cd
+7. 하위폴더(server파일)로 이동 명령어 cd
 8. docker build -t 리전이름-docker.pkg.dev/프로젝트id/저장소이름(guestbook)/이미지이름(guestbook) . <- 마지막에 . 중요
+
+```sql
+docker build -t us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestbook .
+```
+
 9. docker images // 빌드 성공 확인
 10. docker push 리전이름-docker.pkg.dev/프로젝트id/저장소이름(guestbook)/이미지이름(guestbook)
+
+```sql
+docker push us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestbook
+```
+
 11. docker ps (push 확인 명령어), 지금 상태가 up이라고 되어있으면 된거다.
 12. api 발급을 위한 Cloud Run 메뉴 선택한다. (클라우드 쉘은 닫아도 됨)
 13. 서비스만들기, 컨테이너배포
@@ -50,3 +62,19 @@
 18. Cloud Storage로 이동, 프론트를 만들어주는 친구, 버킷에가면 업로드시킬수 있음
     - 누구나 오픈 할 수 있기때문에 권한에서 엑세스 권한 부여, allUser
     - (IAM은 본격적인 권한주는 곳 여기는 나중에 공부하기)
+
+## 버킷만들기
+
+- 시작히기 이름
+- 데이터 저장 위치 Region - 아이오아
+- 데이터의 스토리지 클래스, 스탠다드
+- 공개 액세스 방지 체크표시 해제
+- 세분화
+- 세분화된 엑세스 제어 체크
+- 객체 데이터를 보호하는 방법 선택
+  - 소프트 삭제 정책, 기본 보관 기간 사용
+
+### 권한
+
+- 새 주 구성원 allUsers
+- 역할 지정, 클라우드 스토리지,저장소 관리자

@@ -14,16 +14,18 @@ npm init -y
 ### 20250218
 
 - 도커 이미지 에러, 빌드 에러
-- rm -rf -\*, 다삭제
+- rm -rf \*, 다삭제
 - ls -l , toal 확인 명령어
 - gcp 저장소 Artifact Registry 검색
-- rm
 - 리눅스 압축푸는 명령어 unzip 파일명
-- cd unzip한 파일명
-- ls -l
+- unzip unzip할파일명
+- cd 파일명
 - cd server
 - ls -l docker파일 존재여부확인
 - docker 파일 존재하면 빌드 준비
+```sql
+docker build -t 리전명-docker.pkg.dev/프로젝트id/guestbook/도커이미지명 . 으로 빌드
+```
 - guestbook이라는 이미지를 만들어서 빌드
 - 저장소 만든것을 허가 받아야된다, 내가 만든 저장소에 설정 안내 > 인증 정보 도우미 코드 복붙, 인증허가 받기
 - 인증 받고 아래와 같이 진행
@@ -32,8 +34,11 @@ npm init -y
 
 ```sql
 -- strong 나의 프로젝트 아이디를 쓰는 부분
-docker build -t us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestbook
+docker build -t us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestbook .
 ```
+
+docker build -t us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestbook .
+
 
 - strong 나의 프로젝트 아이디를 쓰는 부분
 - 프로젝트를 클릭했을때 나오는 id strong에 복붙
@@ -45,6 +50,8 @@ docker build -t us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestboo
 ```sql
 docker push us-central1-docker.pkg.dev/principal-truck-450001-d4/guestbook/guestbook
 ```
+
+docker push us-central1-docker.pkg.dev/apt-gear-449911-e5/guestbook/guestbook
 
 - 메뉴, Cloud Run 이동
 - 도커가 만들어진 이후 실제로 api 서비스를 만들러감

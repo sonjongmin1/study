@@ -86,3 +86,26 @@ insert into ta (name, city)values('홍길동','부산');
 ```
 
 - 내용 집어넣기
+
+```sql
+-- 기존 테이블이 있으면 삭제 (필요ls한 경우에만 실행)
+-- DROP TABLE IF EXISTS messages;
+
+CREATE TABLE messages (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(50) NOT NULL,
+  message TEXT NOT NULL,
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- 테이블 목록 확인 (MySQL에서 지원)
+SHOW TABLES;
+
+-- 데이터 삽입
+INSERT INTO messages (name, message) VALUES ('손홍민', '행복하시요');
+
+-- 데이터 조회
+SELECT * FROM messages;
+
+
+```
