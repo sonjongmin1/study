@@ -65,6 +65,24 @@ try {
 }
 ```
 
+## 활용예제
+
+```js
+const { log } = require("console");
+const fs = require("fs");
+try {
+  const data = fs.readFileSync("ko.txt", "utf8");
+  const today = new Date();
+  // 현재 표준시간형식으로 바꿈, 현재 날짜와 시간까지 같이 가져감
+  // 날짜 나오고 T나오고 시간이 나옴
+  const formatToday = today.toISOString().split("T")[0];
+  console.log("현재날짜:", formatToday);
+  console.log("애국가", data);
+} catch (err) {
+  console.error(err);
+}
+```
+
 ## express 설치
 
 - node의 프레임워크이다.
@@ -74,4 +92,45 @@ try {
 
 ```js
 npm install express
+```
+
+- 주의사항
+
+  - express는 반드시 한번더 실행시켜줘야 작동이 된다.
+
+  ```js
+  const express = require("express");
+  const app = express();
+  ```
+
+- express를 최종적으로 실행시키는 명령어 app.listen(포트번호,()=>{})
+
+```js
+app.listen(3000, () => {
+  console.log("서버가 http://localhost:3000 현재 실행중입니다.");
+});
+```
+
+### 실행
+
+```js
+node test04.js
+```
+
+### curl 서버테스트가 잘 되었는지 실행하는 명령어
+
+```js
+node 파일명.js // 입력하여 먼저 실행
+```
+
+```js
+curl -X get http://localhost:3000/users
+```
+
+- url 브라우저에 복붙해서 실행되는지 확인
+
+### post방법
+
+```js
+curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name":"kim","age":25}'
 ```
