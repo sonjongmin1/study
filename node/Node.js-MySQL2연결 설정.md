@@ -81,3 +81,8 @@ app.listen(3000, () => {
 
 1. score 테이블 생성
 2. 필드는 id, name, kor, eng
+
+### 명령어
+```js
+npm install cors
+```
