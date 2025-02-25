@@ -72,3 +72,12 @@ app.listen(3000, () => {
   console.log("서버가 연결되었습니다. http://localhost:3000");
 });
 ```
+
+![postman](../img/postman/img1.png)
+
+### 과제, 테이블과 통신하게 만들고, 포스트맨에 데이터가 들어가게 만들기
+
+- url 주소를 클릭했을때 자료가 나타나면 끝!
+
+1. score 테이블 생성
+2. 필드는 id, name, kor, eng
