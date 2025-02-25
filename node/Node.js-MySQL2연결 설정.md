@@ -35,17 +35,36 @@ db.connect((err) => {
 // express는 app이라는 친구가 가지고 있음
 // app.listen <- app에서 실행을 시키기, 포트번호 3000번에 연결시키기
 
-// 요청과 응답, get 보여주는 역할, get은 sql문에서 select만 사용 할 수 있다.
+// 요청과 응답, 보여주는 역할
 app.get("/users", (req, res) => {
   // 데이터베이스 명령어 통칭, 쿼리라고한다.
-  // 큰수를 제일 위로 desc(내림차순), ex) 방명록
   const sql = "select * from userinfo order by id desc";
-  // db.query(sql명령문,(err,results)=>{})
   db.query(sql, (err, results) => {
     if (err) {
-      console.err("데이터 조회중(셀렉트중) 에러가 났습니다.");
+      console.error("데이터 조회중(select중) 에러가 났습니다.");
     }
     res.json(results);
+  });
+});
+
+app.post("/in-user", (req, res) => {
+  // 유의사항 const {name, age} <- sql 테이블에 설계한 이름과 같아야된다.
+  // body(본체)에서 들고오기때문에 req.body
+  const { name, age } = req.body;
+  // name,age에 값이 없으면
+  if (!name || !age) {
+    // res.status 400번대의 에러를 알림
+    return res.status(400).json({ error: "이름 또는 나이 값이 없습니다." });
+  }
+  // post는 [] <- 어떤변수가 들어갈지 정의해줘야 된다.
+  // 무엇이 들어갈지 모를때는 ?라는 명령문 사용
+  const dbsql = "insert into userinfo (name,age) values (?, ?)";
+  db.query(dbsql, [name, age], (err, results) => {
+    if (err) {
+      console.error("데이터 등록중(insert중) 에러가 났습니다.");
+      return;
+    }
+    res.json({ success: true, id: results.id });
   });
 });
 
