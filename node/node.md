@@ -135,4 +135,14 @@ curl -X get http://localhost:3000/users
 curl -X POST http://localhost:3000/users -H "Content-Type: application/json" -d '{"name":"kim","age":25}'
 ```
 
+### 25-02-26
 
+### 명령어
+
+- 공개 ip와 패스워드를 숨기기 위한 보안 명령어를 사용하기위해 아래와 같이 설치
+
+```js
+npm i dotenv
+```
+
+1. .env파일 만들기
