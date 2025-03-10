@@ -21,3 +21,15 @@
 - IDE(통합 개발 환경) : Eclipse, IntelliJ
 - Apache Tomcat(톰캣) : java 웹 애플리케이션 (Servlet, jsp)
 - 데이터베이스 연결 (jdbc)
+
+### 자바 설치
+
+window
+
+- 오라클 홈페이지에서 자바jdk 21버전 설치
+  - https://www.oracle.com/java/technologies/downloads/?er=221886#jdk21-windows
+- Win + R -> sysdm.cpl
+- cmd java -version 자바가 설치되어있는지 확인
+- cmd javac -version 으로 확인
+- 자바를 웹쪽으로 연결시키기 위해 Tomcat 설치
+  - https://tomcat.apache.org/download-90.cgi
