@@ -10,6 +10,18 @@
 }
 ```
 
+### settings.json
+
+- Cmd + , (Mac)
+
+```js
+  "[css]": {
+    "editor.formatOnSave": false
+  }
+```
+
+- 마지막에 추가하기
+
 **"semi": true**
 
 - **기능**: 코드 라인의 끝에 세미콜론(`;`)을 자동으로 추가합니다.
